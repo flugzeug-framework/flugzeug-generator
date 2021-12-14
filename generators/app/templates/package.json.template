@@ -15,7 +15,7 @@
     "makeDocumentation":"gulp documentation",
     "makeValidators": "gulp makeValidators",
     "makeDBDiagram": "gulp dbDiagram",
-    "makeMigration": "gulp makeValidator",
+    "makeMigration": "gulp makemigration",
     "sql": "gulp sql",
     "start": "node --require source-map-support/register dist/main.js",
     "test": "gulp && mocha dist/test --recursive",
