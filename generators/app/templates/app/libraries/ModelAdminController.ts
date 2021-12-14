@@ -45,17 +45,19 @@ export class ModelAdminController<T extends Model> extends ModelController<T> {
   }
   generateSchema() {
     const attributes = this.model.rawAttributes;
-    let schema = {};
+    const schema = {};
     Object.keys(attributes).forEach((attribute) => {
-      let type = attributes[attribute].type.constructor.name.toLowerCase();
-      if (attributes[attribute]._modelAttribute === true) {
+      const type = attributes[attribute].type.constructor.name.toLowerCase();
+      if (isModelAttribute(attributes, attribute)) {
         schema[attribute] = formatSchemaAttribute(type, attribute, attributes);
       }
     });
     this.modelSchema = schema;
   }
 }
-
+function isModelAttribute(attributes, attribute) {
+  return attributes[attribute]._modelAttribute === true;
+}
 function formatSchemaAttribute(type, attribute, attributes) {
   return {
     type,
