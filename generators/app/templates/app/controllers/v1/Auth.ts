@@ -24,15 +24,8 @@ import {
   AuthRegisterSchema,
   AuthResendConfirmSchema,
 } from "@/validators/Auth";
+import { Controller, Get, Post, Authentication, Middlewares } from "flugzeug";
 import {
-  Controller,
-  Get,
-  Post,
-  Authentication,
-  Middlewares,
-} from "flugzeug";
-import {
-  ApiDocs,
   ApiDocsRouteSummary,
   ApiDocsSchemaResponse,
   ApiDocsSchemaRequest,

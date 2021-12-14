@@ -1,5 +1,4 @@
 import { Request, Response } from "express";
-import { default as auth } from "@/controllers/v1/Auth";
 import _ from "lodash";
 import { BaseController } from "@/libraries/BaseController";
 import authService from "@/services/AuthService";
@@ -33,7 +32,7 @@ export function validateJWT(type: string) {
 
     authService
       .validateJWT(token, type)
-      .then(decoded => {
+      .then((decoded) => {
         if (!decoded) {
           BaseController.unauthorized(res, "Invalid Token");
           return null;
@@ -44,7 +43,7 @@ export function validateJWT(type: string) {
         next();
         return null;
       })
-      .catch(err => {
+      .catch((err) => {
         BaseController.unauthorized(res, err);
       });
   };
@@ -101,7 +100,7 @@ export function appendUser(key = "userId") {
 
 export function appendMiddleware(...properties: string[]) {
   return (req: Request, res: Response, next: Function) => {
-    properties.forEach(property => {
+    properties.forEach((property) => {
       req.body[property] = req.session.jwt[propertyMapper[property]];
     });
     next();
@@ -155,7 +154,7 @@ export function validateJWTOnQueryString(type: string, key = "token") {
 
     authService
       .validateJWT(token, type)
-      .then(decoded => {
+      .then((decoded) => {
         if (!decoded) {
           BaseController.unauthorized(res, "Invalid Token");
           return null;
@@ -166,12 +165,11 @@ export function validateJWTOnQueryString(type: string, key = "token") {
         next();
         return null;
       })
-      .catch(err => {
+      .catch((err) => {
         BaseController.unauthorized(res, err);
       });
   };
 }
-
 
 /*
   Checks if the requested user is not self

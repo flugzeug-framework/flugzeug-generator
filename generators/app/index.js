@@ -9,6 +9,8 @@ const mkdirp = require("mkdirp");
 const _ = require("lodash");
 const pjson = require("./../../package.json");
 
+_.extend(Generator.prototype, require("yeoman-generator/lib/actions/install"));
+
 const logo = `                                 
   _____ _                         
  |   __| |_ _ ___ ___ ___ _ _ ___ 
@@ -47,8 +49,9 @@ module.exports = class extends Generator {
 
     const gitName = this.user.git.name();
     const gitEmail = this.user.git.email();
-    const defaultAuthor = `${gitName || "Me"} <${gitEmail ||
-      "me@example.com"}>`;
+    const defaultAuthor = `${gitName || "Me"} <${
+      gitEmail || "me@example.com"
+    }>`;
 
     const prompts = [
       {
@@ -82,7 +85,8 @@ module.exports = class extends Generator {
         message: "Database name:",
         default: this._makeName(this.appname),
         filter: this._makeName,
-        when: props => props.dbtype === "mysql" || props.dbtype === "postgres",
+        when: (props) =>
+          props.dbtype === "mysql" || props.dbtype === "postgres",
       },
       {
         type: "confirm",
@@ -92,7 +96,7 @@ module.exports = class extends Generator {
       },
     ];
 
-    return this.prompt(prompts).then(props => {
+    return this.prompt(prompts).then((props) => {
       this.props = props;
     });
   }
@@ -171,7 +175,7 @@ module.exports = class extends Generator {
       );
 
     this._generateJwtSecret()
-      .then(secret => {
+      .then((secret) => {
         this.fs.copyTpl(
           this.templatePath("app/config/index.ts.template"),
           this.destinationPath("app/config/index.ts"),
@@ -200,7 +204,7 @@ module.exports = class extends Generator {
           },
         );
       })
-      .catch(err => {
+      .catch((err) => {
         this.log("Error generating JWT secret", err);
       });
 

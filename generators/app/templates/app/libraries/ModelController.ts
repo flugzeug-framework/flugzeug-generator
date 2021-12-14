@@ -1,4 +1,4 @@
-import { Request, Response, Router } from "express";
+import { Request, Response } from "express";
 import { log } from "./Log";
 import { db } from "@/db";
 import { config } from "@/config";

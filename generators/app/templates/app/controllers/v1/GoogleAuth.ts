@@ -1,5 +1,5 @@
 import { BaseController } from "@/libraries/BaseController";
-import { Router, Request, Response } from "express";
+import { Request, Response } from "express";
 import {
   authenticateSSO,
   authenticateSSOCallback,

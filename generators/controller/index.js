@@ -26,6 +26,7 @@ module.exports = class extends Generator {
     if (this.opts.modelName == null && this.options.name != null) {
       this.opts.modelName = changeCase.pascalCase(this.options.name);
     }
+
     const prompts = [
       {
         type: "input",
