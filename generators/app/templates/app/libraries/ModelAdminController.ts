@@ -3,14 +3,7 @@ import { Model } from "sequelize";
 import { Request, Response } from "express";
 import { BaseController, handleServerError } from "@/libraries/BaseController";
 import { hasAdminAccess } from "@/policies/Authorization";
-import {
-  Get,
-  Put,
-  Delete,
-  Authentication,
-  Post,
-  Middlewares,
-} from "flugzeug";
+import { Get, Put, Delete, Authentication, Post, Middlewares } from "flugzeug";
 @Authentication()
 @Middlewares([hasAdminAccess()])
 export class ModelAdminController<T extends Model> extends ModelController<T> {
@@ -55,7 +48,6 @@ export class ModelAdminController<T extends Model> extends ModelController<T> {
     let schema = {};
     Object.keys(attributes).forEach((attribute) => {
       let type = attributes[attribute].type.constructor.name.toLowerCase();
-      //@ts-ignore
       if (attributes[attribute]._modelAttribute === true) {
         schema[attribute] = formatSchemaAttribute(type, attribute, attributes);
       }

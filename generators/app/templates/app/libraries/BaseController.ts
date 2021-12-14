@@ -71,7 +71,7 @@ export class BaseController {
           this.constructor,
         );
 
-        let functionsChain: Array<Function> = [];
+        let functionsChain: Array<any> = [];
 
         //route auth config
         if (
@@ -95,26 +95,21 @@ export class BaseController {
             getControllerMiddlewaresMetaData(this.constructor),
           );
 
-        //@ts-ignore
         functionsChain.push(this[property]);
 
         // route config
         const routeConfig = getRouteMetaData(this, property);
         switch (routeConfig.httpMethod) {
           case HttpMethod.GET:
-            //@ts-ignore
             this.router.get(routeConfig.path, functionsChain);
             break;
           case HttpMethod.POST:
-            //@ts-ignore
             this.router.post(routeConfig.path, functionsChain);
             break;
           case HttpMethod.PUT:
-            //@ts-ignore
             this.router.put(routeConfig.path, functionsChain);
             break;
           case HttpMethod.DELETE:
-            //@ts-ignore
             this.router.delete(routeConfig.path, functionsChain);
             break;
           default:
