@@ -1,7 +1,6 @@
 import { ModelController } from "@/libraries/ModelController";
 import { User } from "@/models/User";
 import { isSelfUser } from "@/policies/General";
-import { validateBody } from "@/libraries/Validator";
 import { UserSchema } from "@/validators/User";
 import { Request, Response } from "express";
 import {
@@ -12,8 +11,7 @@ import {
   Authentication,
   Middlewares,
   Authorization,
-} from "flugzeug";
-import {
+  validateBody,
   ApiDocs,
   ApiDocsRouteSummary,
   ApiDocsAddSearchParameters,

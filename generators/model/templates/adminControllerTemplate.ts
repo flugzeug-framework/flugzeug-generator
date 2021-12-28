@@ -1,6 +1,5 @@
 import { <%- modelName %> } from "@/models/<%- modelName %>";
 import { Controller } from "flugzeug";
-
 import { ModelAdminController } from "@/libraries/ModelAdminController";
 
 @Controller("<%- tableName %>", <%- modelName %>)

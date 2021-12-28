@@ -1,4 +1,4 @@
-import { BaseController, parseBody } from "@/libraries/BaseController";
+import { BaseController } from "@/libraries/BaseController";
 import { User } from "@/models/User";
 import { Profile } from "@/models/Profile";
 import { JWTBlacklist } from "@/models/JWTBlacklist";
@@ -15,7 +15,6 @@ import authService, {
   Token,
 } from "@/services/AuthService";
 import uuid from "uuid";
-import { validateBody } from "@/libraries/Validator";
 import { validateJWTOnQueryString } from "@/policies/General";
 
 import {
@@ -24,11 +23,17 @@ import {
   AuthRegisterSchema,
   AuthResendConfirmSchema,
 } from "@/validators/Auth";
-import { Controller, Get, Post, Authentication, Middlewares } from "flugzeug";
 import {
+  Controller,
+  Get,
+  Post,
+  Authentication,
+  Middlewares,
+  parseBody,
   ApiDocsRouteSummary,
   ApiDocsSchemaResponse,
   ApiDocsSchemaRequest,
+  validateBody,
 } from "flugzeug";
 import { Role } from "@/models/Role";
 

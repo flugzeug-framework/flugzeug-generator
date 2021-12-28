@@ -1,7 +1,6 @@
 import { ModelController } from "@/libraries/ModelController";
 import { Profile } from "@/models/Profile";
 import { filterOwner, appendUser } from "@/policies/General";
-import { validateBody } from "@/libraries/Validator";
 import { ProfileSchema } from "@/validators/Profile";
 import {
   Authentication,
@@ -10,6 +9,7 @@ import {
   Get,
   Middlewares,
   Put,
+  validateBody,
 } from "flugzeug";
 
 @Authentication()

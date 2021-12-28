@@ -5,7 +5,7 @@ import {
   HasMany,
   BelongsToMany,
 } from "sequelize-typescript";
-import { BaseModel } from "@/libraries/BaseModel";
+import { BaseModel } from "flugzeug";
 import { Policy } from "@/models/Policy";
 import { RolePolicy } from "@/models/RolePolicy";
 import { UserRole } from "@/models/UserRole";
