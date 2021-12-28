@@ -16,9 +16,6 @@ import { Controller, Get, Middlewares } from "flugzeug";
 
 @Controller("microsoftauth")
 export class MicrosoftAuthController extends BaseController {
-  constructor() {
-    super();
-  }
   @Get("/login")
   authenticate = authenticateSSO(IdentityProvider.Microsoft);
 

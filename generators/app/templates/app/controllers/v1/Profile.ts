@@ -17,9 +17,6 @@ import {
 @Middlewares([filterOwner()])
 @Controller("profile", Profile)
 export class ProfileController extends ModelController<Profile> {
-  constructor() {
-    super();
-  }
   @Get("/")
   getProfiles = (req, res) => this.handleFindAll(req, res);
 

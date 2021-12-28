@@ -39,9 +39,6 @@ import { Role } from "@/models/Role";
 
 @Controller("auth")
 export class AuthController extends BaseController {
-  constructor() {
-    super();
-  }
   @ApiDocsRouteSummary("Log in with a email and password")
   @ApiDocsSchemaRequest("authLoginRequest", {
     type: "object",

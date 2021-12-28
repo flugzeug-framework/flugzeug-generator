@@ -22,9 +22,6 @@ import {
 @Authorization()
 @Controller("user", User)
 export class UserController extends ModelController<User> {
-  constructor() {
-    super();
-  }
   @ApiDocsRouteSummary("Get a List of Users")
   @ApiDocsAddSearchParameters()
   @Get("/")
