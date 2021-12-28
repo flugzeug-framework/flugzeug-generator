@@ -12,7 +12,6 @@ import {
   HasMany,
   BelongsToMany,
 } from "sequelize-typescript";
-import { BaseModel } from "@/libraries/BaseModel";
 import { Profile } from "./Profile";
 import bcrypt from "bcrypt";
 import {
@@ -20,6 +19,7 @@ import {
   ResponseRequired,
   RequestRequired,
   UpdateRequired,
+  BaseModel
 } from "flugzeug";
 import { UserRole } from "./UserRole";
 import { Role } from "./Role";

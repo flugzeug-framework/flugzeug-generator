@@ -10,8 +10,8 @@ import {
   ResponseRequired,
   RequestRequired,
   UpdateRequired,
+  BaseModel,
 } from "flugzeug";
-import { BaseModel } from "@/libraries/BaseModel";
 
 <% if (belongsToUser) { %>import { User } from "./User";<% } %>
 @ApiDocs(true)

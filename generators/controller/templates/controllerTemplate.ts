@@ -26,6 +26,9 @@ import {
 @Authorization()
 <% } %>
 export class <%- controllerName %>Controller extends ModelController<<%- modelName %>> {
+  constructor() {
+    super();
+  }
   @ApiDocsRouteSummary("Get a list of <%- modelName %>s")
   @ApiDocsAddSearchParameters()
   @Get("/")

@@ -16,6 +16,9 @@ import { Controller, Get, Middlewares } from "flugzeug";
 
 @Controller("googleauth")
 export class GoogleAuthController extends BaseController {
+  constructor() {
+    super();
+  }
   @Get("/login")
   authenticate = authenticateSSO(IdentityProvider.Google);
 

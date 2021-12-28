@@ -1,7 +1,6 @@
 import { ModelController } from "@/libraries/ModelController";
 import { Profile } from "@/models/Profile";
 import { filterOwner, appendUser } from "@/policies/General";
-import { validateBody } from "@/libraries/Validator";
 import { ProfileSchema } from "@/validators/Profile";
 import {
   Authentication,
@@ -10,6 +9,7 @@ import {
   Get,
   Middlewares,
   Put,
+  validateBody,
 } from "flugzeug";
 
 @Authentication()
@@ -17,6 +17,9 @@ import {
 @Middlewares([filterOwner()])
 @Controller("profile", Profile)
 export class ProfileController extends ModelController<Profile> {
+  constructor() {
+    super();
+  }
   @Get("/")
   getProfiles = (req, res) => this.handleFindAll(req, res);
 

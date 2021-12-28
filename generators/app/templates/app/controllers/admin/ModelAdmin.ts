@@ -1,16 +1,16 @@
-import {
-  BaseController,
-  handleServerError,
-  ControllerErrors,
-} from "@/libraries/BaseController";
-import { parseLimit, parseOffset } from "@/libraries/ModelController";
+import { BaseController } from "@/libraries/BaseController";
 import {
   Authentication,
   Controller,
   Get,
   Middlewares,
+  handleServerError,
+  ControllerErrors,
+  parseLimit,
+  parseOffset,
 } from "flugzeug";
 import { hasAdminAccess } from "@/policies/Authorization";
+import { config } from "@/config";
 const importedCtrlsAdmin = require("require-dir-all")("../admin");
 import { Request, Response } from "express";
 import _ from "lodash";
@@ -31,8 +31,8 @@ class ModelAdmin extends BaseController {
 
   handleGetRoutes(req: Request, res: Response) {
     try {
-      const limit = parseLimit(req);
-      const offset = parseOffset(req);
+      const limit = parseLimit(req, config);
+      const offset = parseOffset(req, config);
       const order = this.parseOrder(req);
       const count = this.modelAdminList.length;
 

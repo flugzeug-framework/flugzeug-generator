@@ -1,5 +1,5 @@
 import { Table, Column, DataType, HasMany } from "sequelize-typescript";
-import { BaseModel } from "@/libraries/BaseModel";
+import { BaseModel } from "flugzeug";
 import { RolePolicy } from "@/models/RolePolicy";
 
 export interface PermissionData {
