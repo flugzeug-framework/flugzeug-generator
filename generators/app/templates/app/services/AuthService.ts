@@ -45,6 +45,8 @@ export interface JWTPayload {
 
 class AuthService {
   public createToken(user: User, type: string): Token {
+    if (!user?.roles) throw new ReferenceError("roles was not included into user.");
+
     const expiryUnit: moment.unitOfTime.DurationConstructor =
       config.jwt[type].expiry.unit;
     const expiryLength: number = config.jwt[type].expiry.length;
