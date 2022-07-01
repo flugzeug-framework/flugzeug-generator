@@ -7,9 +7,6 @@ import { Role } from "@/models/Role";
   tableName: "user_role",
 })
 export class UserRole extends BaseModel<UserRole> {
-  @Column({ primaryKey: true })
-  id: number;
-
   @ForeignKey(() => User)
   @Column({
     type: DataType.INTEGER,

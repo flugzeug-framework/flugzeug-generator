@@ -7,9 +7,6 @@ import { Policy } from "@/models/Policy";
   tableName: "role_policy",
 })
 export class RolePolicy extends BaseModel<RolePolicy> {
-  @Column({ primaryKey: true })
-  id: number;
-
   @ForeignKey(() => Role)
   @Column({
     type: DataType.INTEGER,
