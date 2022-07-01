@@ -1,5 +1,5 @@
 import { Table, Column, DataType, ForeignKey } from "sequelize-typescript";
-import { BaseModel } from "flugzeug";
+import { BaseModel } from "@/libraries/BaseModel";
 import { Role } from "@/models/Role";
 import { Policy } from "@/models/Policy";
 
