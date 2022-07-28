@@ -13,6 +13,7 @@ import { Role } from "@/models/Role";
 import onboardingService from "@/services/OnboardingService";
 import { Profile } from "@/models/Profile";
 import { Controller, Get, Middlewares } from "flugzeug";
+import { dependenciesInjection } from "@/libraries/BaseControllerDependency";
 
 @Controller("microsoftauth")
 export class MicrosoftAuthController extends BaseController {
@@ -133,5 +134,5 @@ export class MicrosoftAuthController extends BaseController {
   }
 }
 
-const controller = new MicrosoftAuthController();
+const controller = new MicrosoftAuthController(dependenciesInjection);
 export default controller;

@@ -1,9 +1,10 @@
 import { BaseController as BaseControllerLib } from "flugzeug";
-import { validateJWT } from "@/policies/General";
-import { authorize } from "@/policies/Authorization";
+import { DependenciesInjection } from "./BaseControllerDependency";
 
 export class BaseController extends BaseControllerLib {
-  constructor() {
-    super(validateJWT, authorize);
+  constructor(dependenciesInjection: DependenciesInjection) {
+
+    const { setAuthorize, setValidateJWT } = dependenciesInjection || {} as DependenciesInjection;    
+    super(setValidateJWT(), setAuthorize());
   }
 }

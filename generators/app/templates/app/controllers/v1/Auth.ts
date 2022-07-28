@@ -36,6 +36,7 @@ import {
   validateBody,
 } from "flugzeug";
 import { Role } from "@/models/Role";
+import { dependenciesInjection } from "@/libraries/BaseControllerDependency";
 
 @Controller("auth")
 export class AuthController extends BaseController {
@@ -691,5 +692,5 @@ export class AuthController extends BaseController {
   }
 }
 
-const controller = new AuthController();
+const controller = new AuthController(dependenciesInjection);
 export default controller;
