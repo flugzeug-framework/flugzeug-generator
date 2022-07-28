@@ -1,6 +1,5 @@
-import { Table, Column, DataType } from "sequelize-typescript";
-import { BaseModel } from "flugzeug";
-
+import { Table, Column, DataType, Model } from "sequelize-typescript";
+import { BaseModel } from "@/libraries/BaseModel";
 @Table({
   tableName: "jwtblacklist",
 })

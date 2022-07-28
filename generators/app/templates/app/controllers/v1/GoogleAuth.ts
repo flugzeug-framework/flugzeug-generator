@@ -13,6 +13,7 @@ import { Role } from "@/models/Role";
 import onboardingService from "@/services/OnboardingService";
 import { Profile } from "@/models/Profile";
 import { Controller, Get, Middlewares } from "flugzeug";
+import { dependenciesInjection } from "@/libraries/BaseControllerDependency";
 
 @Controller("googleauth")
 export class GoogleAuthController extends BaseController {
@@ -129,5 +130,5 @@ export class GoogleAuthController extends BaseController {
   }
 }
 
-const controller = new GoogleAuthController();
+const controller = new GoogleAuthController(dependenciesInjection);
 export default controller;

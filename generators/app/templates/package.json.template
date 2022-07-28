@@ -20,7 +20,8 @@
     "start": "node --require source-map-support/register dist/main.js",
     "test": "gulp && mocha dist/test --recursive",
     "lint": "tsc --noEmit && eslint \"app/**/*.{js,ts}\" --fix",
-    "format": "prettier --write \"app/**/*.{js,ts}\""
+    "format": "prettier --write \"app/**/*.{js,ts}\"",
+    "detect-circular-dependencies": "gulp && node_modules/madge/bin/cli.js --warning --circular --extensions js ./"
   },
   "author": "<%- author %>",
   "license": "UNLICENSED",
@@ -62,6 +63,7 @@
     "gulp-ts-alias": "1.1.0",
     "gulp-typescript": "4.0.2",
     "mocha": "7.1.1",
+    "madge": "^5.0.1",
     "typescript": "4.0.3"
   },
   "dependencies": {
