@@ -74,6 +74,7 @@ module.exports = class extends Generator {
           { name: "SQLite", value: "sqlite" },
           { name: "MySQL", value: "mysql" },
           { name: "PostgreSQL", value: "postgres" },
+          { name: "MSSQL", value: "mssql"}
         ],
       },
       {
@@ -82,7 +83,7 @@ module.exports = class extends Generator {
         message: "Database name:",
         default: this._makeName(this.appname),
         filter: this._makeName,
-        when: props => props.dbtype === "mysql" || props.dbtype === "postgres",
+        when: props => props.dbtype === "mysql" || props.dbtype === "postgres" || props.dbtype === "mssql",
       },
       {
         type: "confirm",
